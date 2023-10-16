@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 最新消息 */
+        #news{
+            width: 280px;
+            height: 480px;
+            border: 1px solid #999;
+            float: left;
+        }
+        /* 標題 */
+        #news h1{
+            font-size: 16px;
+            font-weight: bolder;
+            /* (margin-left)可不加 */
+            margin-left: 10px;
+        }
+
+        #news table{
+            width: 260px;
+            margin: auto;
+            border-collapse:collapse ;
+        }
+
+        /* 標題列 */
+        #news th{
+            background: #3399FF;
+            font-size: 14px;
+            color: #fff;
+        }
+        #news td{
+            font-size: 12px;
+            line-height: 2;
+        }
+        #news tr:nth-child(even){
+            background: #ffc;
+        }
+        #news tr:nth-child(odd){
+            background: #ddd;
+        }
+
+        /* 圖片展示區 */
+        #photo{
+            width: 590px;
+            height: 460px;
+            border: 1px solid #999;
+            float: right;
+
+            background: #333;
+            font-size: 14px;
+            color: #ff0;
+            text-align: center;
+        }
+        #photo table{
+            width: 570px;
+            margin: auto;
+            border-collapse:collapse ;
+        }
+        #photo #big{
+            width: 570px;
+            /* 340px 記一下，試題未提供 */
+            height: 340px;
+            /* 美化 */
+            margin-top: 5px;
+            /* object-fit: cover; */
+        }
+    </style>
+</head>
+<body>
+    <div id="news">
+        <h1>最新消息</h1>
+        <table>
+            <tr>
+                <th>主題</th>
+                <th>發布日期</th>
+            </tr>
+            <tr>
+                <td><img src="../images/0201.png" alt="">公告全國技能競賽相關事宜</td>
+                <td>112/10/16</td>
+            </tr>
+            <tr>
+                <td><img src="../images/0201.png" alt="">公告即測即評及發證相關事宜</td>
+                <td>112/10/16</td>
+            </tr>
+            <tr>
+                <td><img src="../images/0201.png" alt="">公告網頁設計修題相關事宜</td>
+                <td>112/10/16</td>
+            </tr>
+            <tr>
+                <td><img src="../images/0201.png" alt="">公告網路架設應檢相關事宜</td>
+                <td>112/10/16</td>
+            </tr>
+        </table>
+    </div>
+    <div id="photo">
+        <table>
+            <tr>
+                <td colspan="4"><img id="big" src="../images/0202A.png"></td>
+                <!-- 自己吃掉另外3格(colspan=1+3=4) -->
+            </tr>
+            <tr>
+                <td><img class="img" src="../images/0202B.png"></td>
+                <td><img class="img" src="../images/0203B.png"></td>
+                <td><img class="img" src="../images/0204B.png"></td>
+                <td><img class="img" src="../images/0205B.png"></td>
+            </tr>
+            <tr>
+                <td>第30屆倫敦奧運</td>
+                <td>許淑淨奪舉重銀牌</td>
+                <td>第26屆深圳世大運</td>
+                <td>第27屆喀山世大運</td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="../others/jquery-2.1.4.min.js"></script>
+    <script>
+        // 原生JS
+        // who
+        // const imgs = document.querySelectorAll('.img')
+        // // console.log(imgs) //類似陣列，但不是陣列(類陣列)
+        // // 使用forEach套動作上去，forEach 內使用箭頭函式，參數:元素,索引值
+        // imgs.forEach((img,index)=>{
+        //     //when + how
+        //     img.onclick = function(){
+        //         big.src=`../images/020${index+2}A.png`
+        //     }
+        // })
+
+
+        //Jquery
+        // console.log($('.img'))
+        $('.img').each((index,img)=>{
+            $(img).on('click',function(){
+                // 抓出來是物件，再改屬性
+                // console.log($('#big').attr('src')) //第二參數，是指getter,取值
+                $('#big').attr('src',`../images/020${index + 2}A.png`) // 第二參數有設定，是指setter , 設定值
+            })
+        })
+
+
+        
+    </script>
+</body>
+</html>
