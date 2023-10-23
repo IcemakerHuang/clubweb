@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+
+        /* 圖片置中1 */
+        .center{
+            text-align: center;
+            /* 圖片屬於inline特性 */
+            /* 將圖片當作行內，對父層下class */
+        }
+        /* 圖片置中2 */
+        .block{
+            display: block;
+            margin: auto;
+            /* 將圖片轉成block特性，利用區塊具寬高排版 */
+        }
+        /* 圖片置中3 */
+        .center{
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>vertical-align</h1>
+    <div>
+        <img src="https://picsum.photos/300/200/?random=10">
+        <img src="https://picsum.photos/300/200/?random=10">
+        <img src="https://picsum.photos/300/200/?random=10">
+    </div>
+
+    <hr>
+
+    <h1>圖片置中</h1>
+    <div class="center">
+        <img src="https://picsum.photos/300/200/?random=10">
+    </div>
+    <img class="block" src="https://picsum.photos/300/200/?random=10">
+</body>
+</html>
